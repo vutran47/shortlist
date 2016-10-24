@@ -1,0 +1,12 @@
+A
+B
+D
+E (please review this question, for i doubt there is a mistake in word usage. all the events listed are video event, but the question ask what is NOT video event. and the choice E say ALL of them are wrong.)
+C
+B
+B, C (more than one choice is ok? I'm pretty sure both B and C will return no error)
+D
+B
+A
+
+

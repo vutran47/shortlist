@@ -1,0 +1,13 @@
+{
+  "name": "shortlist_test",
+  "version": "1.0.0",
+  "description": "answer",
+  "main": "test.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "./node_modules/.bin/babel-node test.js"
+  },
+  "author": "Vu Tran",
+  "license": "ISC"
+}
