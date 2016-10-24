@@ -20,16 +20,19 @@ function my_func(N_array) {
 };
 
 function calculate_and_write_to_output(filepath) {
-    fs.readFile(filepath, 'utf8', (err, data) => {
-        var array_of_input = data.split(/\r\n/);
-        var result = my_func.call([],array_of_input);
-        console.log(filepath + ' --- ' +result);
-    })
+  fs.readFile(filepath, 'utf8', (err, data) => {
+      var array_of_input = data.split(/\r\n/);
+      var outpath = filepath.replace('input','v_output');
+      var result = my_func.call([],array_of_input).toString().replace(/\D/g,'\n');
+      fs.writeFile(outpath, result, 'utf8',(err)=>{
+        (!err) && console.log('Success writing file: '+ outpath.substring(7));
+      });
+  })
 }
 
 fs.readdir('./data', (err, files) => {
-    if (err) throw err;
-    for (file of files) {
-        file.startsWith('input') && calculate_and_write_to_output('./data/' + file);
-    }
+  if (err) throw err;
+  for (file of files) {
+    file.startsWith('input') && calculate_and_write_to_output('./data/' + file);
+  }
 });
