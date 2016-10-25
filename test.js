@@ -3,9 +3,9 @@ var input_array = [];
 
 function my_func(N_array) {
   for (Nx of N_array) {
-    var N = parseInt(Nx);
-    var count = 0;
-    var a, b, c;
+    let N = parseInt(Nx);
+    let count = 0;
+    let a, b, c;
     if (N < 4) continue;
       for (a = Math.ceil(N / 4); a <= N - 3; a++) {
           for (b = Math.ceil((N - a) / 3); b <= Math.min(a, N - 2 - a); b++) {
@@ -23,7 +23,8 @@ function calculate_and_write_to_output(filepath) {
   fs.readFile(filepath, 'utf8', (err, data) => {
       var array_of_input = data.split(/\r\n/);
       var outpath = filepath.replace('input','v_output');
-      var result = my_func.call([],array_of_input).toString().replace(/\D/g,'\n');
+      var result = my_func.call([],array_of_input).toString().replace(/\D/g,"\n");
+      
       fs.writeFile(outpath, result, 'utf8',(err)=>{
         (!err) && console.log('Success writing file: '+ outpath.substring(7));
       });
