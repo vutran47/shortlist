@@ -1,8 +1,9 @@
+'use strict'
 var fs = require('fs');
 var input_array = [];
 
 function my_func(N_array) {
-  for (Nx of N_array) {
+  for (let Nx of N_array) {
     let N = parseInt(Nx);
     let count = 0;
     let a, b, c;
@@ -33,7 +34,7 @@ function calculate_and_write_to_output(filepath) {
 
 fs.readdir('./data', (err, files) => {
   if (err) throw err;
-  for (file of files) {
+  for (let file of files) {
     file.startsWith('input') && calculate_and_write_to_output('./data/' + file);
   }
 });
