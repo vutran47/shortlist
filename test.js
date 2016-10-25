@@ -23,7 +23,7 @@ function calculate_and_write_to_output(filepath) {
   fs.readFile(filepath, 'utf8', (err, data) => {
       var array_of_input = data.split(/\r\n/);
       var outpath = filepath.replace('input','v_output');
-      var result = my_func.call([],array_of_input).toString().replace(/\D/g,"\n");
+      var result = my_func.call([],array_of_input).toString().replace(/\D/g,"\r\n");
       
       fs.writeFile(outpath, result, 'utf8',(err)=>{
         (!err) && console.log('Success writing file: '+ outpath.substring(7));
